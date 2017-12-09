@@ -167,9 +167,14 @@ app.post('/upload', function (req, res, next) {
     upload.array('userPhoto', 10)(req, res, function (err) {
         var file = req.files
 
+        console.log("REQ:"+req)
+
+        console.log("RES:"+res)
+
         console.log(err)
 
         arrPhoto = []
+        
         for (f = 0; f < req.files.length; f++) {
             console.log(file[f]['filename'])
             arrPhoto.push(file[f]['filename'])
