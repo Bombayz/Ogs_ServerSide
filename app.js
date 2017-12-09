@@ -56,7 +56,7 @@ var upload = multer({storage: storage});
 var upload2 = multer();
 
 app.get('/', function (req, res) {
-    res.send('<h1>Welcom API OGS.co.th</h1>');
+    res.send('<h1>API OGS.co.th</h1>');
 });
 
 app.get('/user', function (req, res) {
@@ -166,6 +166,8 @@ app.post('/saveImg', function (req, res) {
 app.post('/upload', function (req, res, next) {
     upload.array('userPhoto', 10)(req, res, function (err) {
         var file = req.files
+
+        console.log(err)
 
         arrPhoto = []
         for (f = 0; f < req.files.length; f++) {
