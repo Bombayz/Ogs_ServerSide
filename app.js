@@ -23,7 +23,7 @@ var dir = path.join(__dirname, 'public');
 // app.use(express.static(path.join(__dirname, 'public')));
 // app.use(app.static('public'))
 
-app.use(cors({origin: '*'}));
+app.use(cors({origin: true,credentials:true}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -31,6 +31,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // default options app.use(fileUpload()); Add headers
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods","Get,POST")    
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -174,7 +175,7 @@ app.post('/upload', function (req, res, next) {
         console.log(err)
 
         arrPhoto = []
-        
+
         for (f = 0; f < req.files.length; f++) {
             console.log(file[f]['filename'])
             arrPhoto.push(file[f]['filename'])
