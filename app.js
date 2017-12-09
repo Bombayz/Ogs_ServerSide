@@ -56,7 +56,7 @@ var upload = multer({storage: storage});
 var upload2 = multer();
 
 app.get('/', function (req, res) {
-    res.send('<h1>API OGS</h1>');
+    res.send('<h1>API OGS.co.th</h1>');
 });
 
 app.get('/user', function (req, res) {
