@@ -56,26 +56,12 @@ var upload = multer({storage: storage});
 var upload2 = multer();
 
 app.get('/', function (req, res) {
-    res.send('<h1>API OGS.co.th</h1>');
+    res.send('<h1>Welcom API OGS.co.th</h1>');
 });
 
 app.get('/user', function (req, res) {
     res.json(users.findAll());
 });
-
-// Serve up public/ftp folder
-// var serve = serveStatic('./public/uploadsimg', {
-//     'index': false,
-//     'setHeaders': setHeaders
-// }) // Set header to force download
-// function setHeaders(res, path) {
-//     res.setHeader('Content-Disposition', contentDisposition(path))
-// }
-
-// app
-//     .get('/upload', function (req, res) {
-//         serve(req, res, finalhandler(req, res))
-//     });
 
 app.use(serveStatic('./public/uploadsimg', {'index': ['default.html', 'default.htm']}))
 
