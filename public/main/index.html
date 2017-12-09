@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <title>MainPage</title>
+    <style>
+            /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+            #map {
+              height: 100%;
+            }
+            /* Optional: Makes the sample page fill the window. */
+            html, body {
+              height: 100%;
+              margin: 0;
+              padding: 0;
+            }
+      
+            #map {
+              height: 500px;
+              width: auto;
+            }
+
+            .wd100{
+                width: 100% !important;
+            }
+
+    </style>
+</head>
+<body>
+
+    <div class="ui top fixed menu">
+        <div class="item">
+                <img src="/images/logo.png">
+            </div>
+            <a class="item"><i class="file outline icon"></i>บันทึกแบบฟอร์ม</a>
+            <a class="item"><i class="reply icon"></i>เรียกดูแบบฟอร์ม</a>
+            <a class="item"><i class="unlock icon"></i>ออกจากระบบ</a>
+    </div>
+    <p>&nbsp</p>
+    <p>&nbsp</p>
+    <div class="ui container">
+        <div class="ui equal width grid">
+            <div class="column">
+                <div class="ui card wd100">
+                    <div class="content">
+                        <div class="header">แบบฟอร์ม</div>
+                    </div>
+                    <div class="content">                    
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui card wd100">
+                    <div class="content">
+                        <div class="header">แผนที่</div>
+                    </div>
+                    <div class="content">
+                            <div id="map"></div>
+                            <script>
+                                var map;
+                                function initMap() {
+                                    map = new google.maps.Map(document.getElementById('map'), {
+                                    center: {lat: 13.847860, lng: 100.604274},
+                                    zoom: 10
+                                    });
+                                }
+                            </script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgLCv-XHBu0nLkdkwnrCkaMQQ7sJbHmzg&callback=initMap"
+                        async defer></script> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+    <style src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></style>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script>
+    
+    </script>
+</html>
