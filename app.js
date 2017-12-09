@@ -200,7 +200,7 @@ app.get('/getData/:id', function (req, res) {
     resp = {}
     data = []
 
-    qry = "SELECT * FROM survery.Addr WHERE byuser = '" + id + "'"
+    qry = "SELECT * FROM survery.Addr WHERE byuser = '" + id + "' ORDER BY date_in"
 
     console.log(qry)
 
