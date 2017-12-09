@@ -15,9 +15,9 @@ var bodyParser = require('body-parser');
 
 var mysql = require('mysql');
 
-var con = mysql.createConnection({host: 'localhost', user: 'root', password: '1234', database: 'survery'});
+var con = mysql.createConnection({host: '203.154.82.62', user: 'user', password: '!Ogs1234', database: 'survery'});
 
-var port = process.env.PORT || 7777;
+var port = process.env.PORT || 80;
 
 var dir = path.join(__dirname, 'public');
 // app.use(express.static(path.join(__dirname, 'public')));
