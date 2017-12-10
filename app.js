@@ -302,6 +302,48 @@ app.get('/getData/', function (req, res) {
     });
 });
 
+app.get('/getData/', function (req, res) {
+    resp = {}
+    data = []
+
+    qry = "SELECT * FROM survery.Addr"
+
+    console.log(qry)
+
+    con.query({
+        sql: qry
+    }, function (error, results, fields) {
+        console.log(error)
+        for (i = 0; i < results.length; i++) {
+            data.push(results[i])
+        }
+        resp.data = data
+        resp.status = "ok"
+        res.json(resp);
+    });
+});
+
+app.get('/getDataType/', function (req, res) {
+    resp = {}
+    data = []
+
+    qry = "SELECT * FROM survery.Addr"
+
+    console.log(qry)
+
+    con.query({
+        sql: qry
+    }, function (error, results, fields) {
+        console.log(error)
+        for (i = 0; i < results.length; i++) {
+            data.push(results[i])
+        }
+        resp.data = data
+        resp.status = "ok"
+        res.json(resp);
+    });
+});
+
 app.get('/getDataType/:id', function (req, res) {
     var id = req.params.id
     resp = {}
