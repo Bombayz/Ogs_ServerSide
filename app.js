@@ -172,6 +172,31 @@ app.post('/editFormData', function (req, res) {
 
 });
 
+app.post('/delFormData', function (req, res) {
+    var json = req.body;
+    
+    try {
+        if (req.body) {
+            var qry = " DELETE FROM `survery`.`Addr`"+
+                    " WHERE doc_id = '"+ json.doc_id +"' AND addr_no = '" + json.old_addr_no+ "'"
+            console.log(">>" + qry)
+
+            con.query({
+                sql: qry
+            }, function (error, results, fields) {
+                console.log(error)
+            });
+
+            res.json({status: "ok"});
+        } else {
+            res.json({status: "deny"});
+        }
+    } catch (error) {
+        res.json({status: "deny"});
+    }
+
+});
+
 app.post('/saveImg', function (req, res) {
     var json = req.body;
     console.log("doc_id >>" + json.doc_id);
