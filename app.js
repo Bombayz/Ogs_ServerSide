@@ -344,9 +344,11 @@ app.get('/getDataType/', function (req, res) {
     });
 });
 
+
+
 app.get('/getDataType/:type/:user', function (req, res) {
     var type = req.params.type
-    var user = req.param.user
+    var user = req.params.user
     resp = {}
     data = []
 
