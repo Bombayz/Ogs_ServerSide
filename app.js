@@ -352,7 +352,7 @@ app.get('/getDataType/:type/:user', function (req, res) {
     resp = {}
     data = []
 
-    qry = "SELECT * FROM survery.Addr WHERE asset_type = '" + type + " AND byuser = '" + user + "' ORDER BY date_in"
+    qry = "SELECT * FROM survery.Addr WHERE asset_type = '" + type + "' AND byuser = '" + user + "' ORDER BY date_in"
 
     console.log(qry)
 
