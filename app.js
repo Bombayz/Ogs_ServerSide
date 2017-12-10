@@ -111,7 +111,8 @@ app.post('/sendFormData', function (req, res) {
     console.log(json.lon)
     console.log(json.moo)
     console.log(json.addr_no)
-
+    console.log(json.asset_type)
+    
     try {
         if (req.body) {
             var qry = "INSERT INTO survery.Addr( moo , addr_no , lat , lon , doc_id , date_in ,byuser,asset_type )" +
