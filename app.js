@@ -344,12 +344,13 @@ app.get('/getDataType/', function (req, res) {
     });
 });
 
-app.get('/getDataType/:id', function (req, res) {
-    var id = req.params.id
+app.get('/getDataType/:type/:user', function (req, res) {
+    var type = req.params.type
+    var user = req.param.user
     resp = {}
     data = []
 
-    qry = "SELECT * FROM survery.Addr WHERE asset_type = '" + id + "' ORDER BY date_in"
+    qry = "SELECT * FROM survery.Addr WHERE asset_type = '" + type + " AND byuser = '" + user + "' ORDER BY date_in"
 
     console.log(qry)
 
