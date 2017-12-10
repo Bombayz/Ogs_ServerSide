@@ -302,6 +302,28 @@ app.get('/getData/', function (req, res) {
     });
 });
 
+app.get('/getDataType/:id', function (req, res) {
+    var id = req.params.id
+    resp = {}
+    data = []
+
+    qry = "SELECT * FROM survery.Addr WHERE asset_type = '" + id + "' ORDER BY date_in"
+
+    console.log(qry)
+
+    con.query({
+        sql: qry
+    }, function (error, results, fields) {
+        console.log(error)
+        for (i = 0; i < results.length; i++) {
+            data.push(results[i])
+        }
+        resp.data = data
+        resp.status = "ok"
+        res.json(resp);
+    });
+});
+
 app.get('/getImg/:id', function (req, res) {
     var id = req.params.id
     resp = {}
