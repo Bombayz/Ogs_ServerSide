@@ -135,8 +135,7 @@ app.post('/sendFormData', function (req, res) {
 
 });
 
-app.post('/editFormData/:id', function (req, res) {
-    var id = req.params.id;
+app.post('/editFormData', function (req, res) {
     var json = req.body;
     console.log(json.lat)
     console.log(json.lon)
@@ -144,25 +143,32 @@ app.post('/editFormData/:id', function (req, res) {
     console.log(json.addr_no)
     console.log(json.asset_type)
     
-    // try {
-    //     if (req.body) {
-    //         var qry = "INSERT INTO survery.Addr( moo , addr_no , lat , lon , doc_id , date_in ,byuser,asset_type )" +
-    //                 " VALUES ( " + + " " + json.moo + "  , '" + json.addr_no + "' , '" + json.lat + "' , '" + json.lon + "' , '" + json.doc_id + "' , CURDATE(),'" + json.user_id + "', "+json.asset_type+")"
-    //         console.log(">>" + qry)
+    try {
+        if (req.body) {
+            var qry = "UPDATE survery.Addr " +
+                    " SET "+
+                    " moo = '" + json.moo + "'"+
+                    " lat = '" + json.lat + "'"+
+                    " lon = '" + json.lon + "'"+
+                    " addr_no = '" + json.addr_no + "'"+
+                    " asset_type = " + json.asset_type + ""+
+                    
+                    " WHERE doc_id = '"+ json.doc_id +"' AND addr_no = " + json.old_addr_no
+            console.log(">>" + qry)
 
-    //         con.query({
-    //             sql: qry
-    //         }, function (error, results, fields) {
-    //             console.log(error)
-    //         });
+            con.query({
+                sql: qry
+            }, function (error, results, fields) {
+                console.log(error)
+            });
 
-    //         res.json({status: "ok"});
-    //     } else {
-    //         res.json({status: "deny"});
-    //     }
-    // } catch (error) {
-    //     res.json({status: "deny"});
-    // }
+            res.json({status: "ok"});
+        } else {
+            res.json({status: "deny"});
+        }
+    } catch (error) {
+        res.json({status: "deny"});
+    }
 
 });
 
