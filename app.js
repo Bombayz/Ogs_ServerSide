@@ -153,7 +153,7 @@ app.post('/editFormData', function (req, res) {
                     " addr_no = '" + json.addr_no + "',"+
                     " asset_type = " + json.asset_type + ""+
                     
-                    " WHERE doc_id = '"+ json.doc_id +"' AND addr_no = " + json.old_addr_no
+                    " WHERE doc_id = '"+ json.doc_id +"' AND addr_no = '" + json.old_addr_no+ "'"
             console.log(">>" + qry)
 
             con.query({
