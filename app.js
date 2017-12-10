@@ -114,8 +114,8 @@ app.post('/sendFormData', function (req, res) {
 
     try {
         if (req.body) {
-            var qry = "INSERT INTO survery.Addr( moo , addr_no , lat , lon , doc_id , date_in ,byuser )" +
-                    " VALUES ( " + + " " + json.moo + "  , '" + json.addr_no + "' , '" + json.lat + "' , '" + json.lon + "' , '" + json.doc_id + "' , CURDATE(),'" + json.user_id + "')"
+            var qry = "INSERT INTO survery.Addr( moo , addr_no , lat , lon , doc_id , date_in ,byuser,asset_type )" +
+                    " VALUES ( " + + " " + json.moo + "  , '" + json.addr_no + "' , '" + json.lat + "' , '" + json.lon + "' , '" + json.doc_id + "' , CURDATE(),'" + json.user_id + "', "+json.asset_type+")"
             console.log(">>" + qry)
 
             con.query({
