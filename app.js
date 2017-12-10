@@ -135,6 +135,37 @@ app.post('/sendFormData', function (req, res) {
 
 });
 
+app.post('/editFormData/:id', function (req, res) {
+    var id = req.params.id;
+    var json = req.body;
+    console.log(json.lat)
+    console.log(json.lon)
+    console.log(json.moo)
+    console.log(json.addr_no)
+    console.log(json.asset_type)
+    
+    // try {
+    //     if (req.body) {
+    //         var qry = "INSERT INTO survery.Addr( moo , addr_no , lat , lon , doc_id , date_in ,byuser,asset_type )" +
+    //                 " VALUES ( " + + " " + json.moo + "  , '" + json.addr_no + "' , '" + json.lat + "' , '" + json.lon + "' , '" + json.doc_id + "' , CURDATE(),'" + json.user_id + "', "+json.asset_type+")"
+    //         console.log(">>" + qry)
+
+    //         con.query({
+    //             sql: qry
+    //         }, function (error, results, fields) {
+    //             console.log(error)
+    //         });
+
+    //         res.json({status: "ok"});
+    //     } else {
+    //         res.json({status: "deny"});
+    //     }
+    // } catch (error) {
+    //     res.json({status: "deny"});
+    // }
+
+});
+
 app.post('/saveImg', function (req, res) {
     var json = req.body;
     console.log("doc_id >>" + json.doc_id);
