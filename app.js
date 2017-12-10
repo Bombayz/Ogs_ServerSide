@@ -147,10 +147,10 @@ app.post('/editFormData', function (req, res) {
         if (req.body) {
             var qry = "UPDATE survery.Addr " +
                     " SET "+
-                    " moo = '" + json.moo + "'"+
-                    " lat = '" + json.lat + "'"+
-                    " lon = '" + json.lon + "'"+
-                    " addr_no = '" + json.addr_no + "'"+
+                    " moo = '" + json.moo + "',"+
+                    " lat = '" + json.lat + "',"+
+                    " lon = '" + json.lon + "',"+
+                    " addr_no = '" + json.addr_no + "',"+
                     " asset_type = " + json.asset_type + ""+
                     
                     " WHERE doc_id = '"+ json.doc_id +"' AND addr_no = " + json.old_addr_no
